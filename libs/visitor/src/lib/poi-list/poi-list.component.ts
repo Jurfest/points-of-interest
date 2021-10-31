@@ -9,6 +9,8 @@ import { PoiActions, PoiSelectors } from '@packt/poi';
   styleUrls: ['./poi-list.component.scss'],
 })
 export class PoiListComponent implements OnInit {
+  pois$ = this.store.select(PoiSelectors.getAllPoi);
+
   constructor(private store: Store) {}
 
   ngOnInit(): void {
