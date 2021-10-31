@@ -9,6 +9,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 
 import { VisitorComponent } from './visitor.component';
+import { PoiModule } from '@packt/poi';
+import { PoiListComponent } from './poi-list/poi-list.component';
 
 @NgModule({
   imports: [
@@ -20,7 +22,8 @@ import { VisitorComponent } from './visitor.component';
     MatIconModule,
     MatListModule,
     RouterModule.forChild([{ path: '', component: VisitorComponent }]),
+    PoiModule,
   ],
-  declarations: [VisitorComponent],
+  declarations: [VisitorComponent, PoiListComponent],
 })
 export class VisitorModule {}
