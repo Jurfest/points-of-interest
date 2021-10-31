@@ -7,6 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 import { VisitorComponent } from './visitor.component';
 import { PoiModule } from '@packt/poi';
@@ -23,6 +24,7 @@ import { PoiListComponent } from './poi-list/poi-list.component';
     MatListModule,
     RouterModule.forChild([{ path: '', component: VisitorComponent }]),
     PoiModule,
+    GoogleMapsModule
   ],
   declarations: [VisitorComponent, PoiListComponent],
 })
