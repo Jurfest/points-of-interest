@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 
-import { PoiSelectors } from '@packt/poi';
+import { PoiActions, PoiSelectors } from '@packt/poi';
 
 @Component({
   selector: 'packt-map',
@@ -10,6 +11,12 @@ import { PoiSelectors } from '@packt/poi';
 })
 export class MapComponent {
   poi$ = this.store.select(PoiSelectors.getSelected);
+  @ViewChild(MapInfoWindow) info: MapInfoWindow | undefined;
 
   constructor(private store: Store) {}
+
+  showInfo(marker: MapMarker, poiId: string | number) {
+    this.store.dispatch(PoiActions.visitPoi({ poiId }));
+    this.info?.open(marker);
+  }
 }
